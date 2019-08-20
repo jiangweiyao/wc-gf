@@ -1,0 +1,39 @@
+{
+  "name": "{{ agave.appsPrefix }}-wc-gf",
+  "version": "0.1",
+  "label": "wc (word count) linux command wrapped in geneflow app",
+  "defaultNodeCount": 1,
+  "defaultMemoryPerNode": 1,
+  "defaultProcessorsPerNode": 1,
+  "executionType": "HPC",
+  "parallelism": "SERIAL",
+  "checkpointable": false,
+  "executionSystem": "{{ agave.executionSystem }}",
+  "deploymentPath": "{{ agave.appsDir }}/wc-gf-0.1",
+  "deploymentSystem": "{{ agave.deploymentSystem }}",
+  "templatePath": "wc-gf.sh",
+  "testPath": "test/test.sh",
+  "inputs": [
+    { "id": "file",
+      "value": {
+        "required": true,
+        "default": ""
+      }
+    }
+  ],
+  "parameters": [
+    { "id": "output",
+      "value": {
+        "required": true,
+        "type": "string"
+      }
+    },
+    { "id": "exec_method",
+      "value": {
+        "required": true,
+        "default": "auto",
+        "type": "string"
+      }
+    }
+  ]
+}
